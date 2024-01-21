@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300&family=Irish+Grover&family=Mukta:wght@700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    margin: 0px;
+    padding: 0%;
+  }
+  body{
+    background-color: black;    }
