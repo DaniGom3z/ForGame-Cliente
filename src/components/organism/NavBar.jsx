@@ -13,6 +13,7 @@ function NavBar (){
       <div className={`links ${clicked ? 'active' : ''}`}>
         <a href="/">Inicio</a>
         <a href="/chat">Chat global</a>
+        <a href="/chatFortnite">Chat Fornite</a>
         <a href="/login">Iniciar</a>
       </div>
       <div className=' md:hidden z-10'>

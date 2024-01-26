@@ -8,24 +8,31 @@ function Chat() {
   const [messages, setMessages] = useState([]);
   const [recentMessages, setRecentMessages] = useState([]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setMessages([...messages]);
-    socket.emit("message", message);
-    setMessage("");
-  };
-
   useEffect(() => {
+    // Unirse a la sala al montar el componente
+    socket.emit("joinRoom", "chat-global");
+
     socket.on("message", receiveMessage);
     socket.on("recentMessages", (recentMessages) => {
       setRecentMessages(recentMessages);
     });
 
     return () => {
+      // Salir de la sala al desmontar el componente
+      socket.emit("leaveRoom", "chat-global");
       socket.off("message", receiveMessage);
       socket.off("recentMessages");
     };
   }, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    socket.emit("message", { room: "chat-global", body: message });
+    setMessage("");
+  };
+  const handleSalir = () => {
+    socket.emit("leaveRoom", "chat-global");
+  };
 
   const receiveMessage = (message) =>
     setMessages((state) => [...state, message]);
@@ -34,6 +41,14 @@ function Chat() {
     <div className="h-screen bg-black text-white flex flex-col">
       <div className="bg-gray-900 p-4 flex items-center justify-between">
         <h1 className="text-2xl font-bold">Chat Global</h1>
+        <a href="./">
+          <button
+            onClick={handleSalir}
+            className="text-sm text-gray-300 px-2 py-1 bg-gray-600 rounded"
+          >
+            Salir
+          </button>
+        </a>
       </div>
       <ul className="flex-1 overflow-auto p-4">
         {recentMessages.map((message, i) => (

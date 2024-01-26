@@ -82,13 +82,13 @@ function Home() {
               <h3>Descubre las recompensas y los desafíos del pase</h3>
             </div>
         </div>
-      <div className="md:ml-auto w-3/12 text-slate-200 p-2 max-sm:w-auto border-2 border-recomendacion rounded-b-lg  h-60 max-sm:h-auto max-sm:mb-10 max-sm:mt-10">
-        <h1 className=" text-center  text-3xl font-semibold mb-5">Comentarios</h1>
+        <div className="md:ml-auto w-3/12 grid text-slate-200 p-2 max-sm:w-auto border-2 border-recomendacion rounded-b-lg h-60 max-sm:h-auto max-sm:mb-10 max-sm:mt-10">
+          <h1 className="text-center text-3xl font-semibold mb-5">Comentarios</h1>
 
-        <p>
-          WEBSOCKET
-        </p>
-      </div>
+          <p >
+            Fornite: no es lo mismo que antes :(:(
+          </p>
+        </div>
       </section>
     </>
   );

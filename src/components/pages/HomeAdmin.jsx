@@ -37,12 +37,7 @@ function HomeAdmin() {
               value={popularGame}
               onChange={(e) => updatePopularGame(e.target.value)}
             />
-            <button
-              className="w-auto h-auto p-1 rounded-r-lg bg-sky-400"
-              onClick={() => updatePopularGame(popularGame)}
-            >
-              Actualizar
-            </button>
+            
         </div>
 
         <div className="md:ml-auto border-2 max-sm:w-auto w-3/12 max-sm:mt-10 text-center rounded-tr-lg border-conectados p-4">
